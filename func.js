@@ -258,6 +258,7 @@ const loadProductDetails = () => {
 };
 
 // Initialize the app
+// Initialize the app with embedded data
 const initApp = () => {
   // Load cart from localStorage
   if (localStorage.getItem("cart")) {
@@ -267,41 +268,203 @@ const initApp = () => {
   // Update cart icon on page load
   updateCartIcon();
 
-  // Fetch product data with absolute path
-  console.log("Attempting to fetch product.json");
-  fetch("/product.json") // Use absolute path
-    .then((response) => {
-      console.log("Fetch response:", response);
-      if (!response.ok) {
-        throw new Error("Network response was not ok: " + response.statusText);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log("Fetched data:", data);
-      listProducts = data;
+  // Embedded product data (replace with your actual data from product.json)
+  listProducts = [
+    {
+      id: 1,
+      name: "Cropped Tops",
+      price: 6.95,
+      image: "image/HOMEPAGE1.jpg",
+      image1: "imageElse/1-1.jpg",
+      image2: "imageElse/1-2.jpg",
+      image3: "imageElse/1-3.jpg",
+    },
+    {
+      id: 2,
+      name: "Cropped Tops",
+      price: 6.95,
+      image: "image/HOMEPAGE2.jpg",
+      image1: "imageElse/2-1.jpg",
+      image2: "imageElse/2-2.jpg",
+      image3: "imageElse/2-3.jpg",
+    },
 
-      // Render products on homepage
-      if (listProductHTML) {
-        addDataToHtml();
-      }
+    {
+      id: 3,
+      name: "Cropped Tops",
+      price: 6.95,
+      image: "image/HOMEPAGE3.jpg",
+      image1: "imageElse/3-1.jpg",
+      image2: "imageElse/3-2.jpg",
+      image3: "imageElse/3-3.jpg",
+    },
+    {
+      id: 4,
+      name: "Mini Puff-Sleeves Dresses",
+      price: 19.59,
+      image: "image/HOMEPAGE4.jpg",
+      image1: "imageElse/4-1.jpg",
+      image2: "imageElse/4-2.jpg",
+      image3: "imageElse/4-3.jpg",
+    },
+    {
+      id: 5,
+      name: "Monki Ribbed Knitted Sweatshirt",
+      price: 23.59,
+      image: "image/HOMEPAGE5.jpg",
+      image1: "imageElse/5-1.jpg",
+      image2: "imageElse/5-2.jpg",
+      image3: "imageElse/5-3.jpg",
+    },
+    {
+      id: 6,
+      name: "Monki Ribbed Knitted Sweatshirt",
+      price: 23.59,
+      image: "image/HOMEPAGE6.jpg",
+      image1: "imageElse/6-1.jpg",
+      image2: "imageElse/6-2.jpg",
+      image3: "imageElse/6-3.jpg",
+    },
+    {
+      id: 7,
+      name: "Ribbon Tops",
+      price: 18.59,
+      image: "image/HOMEPAGE7.jpg",
+      image1: "imageElse/7-1.jpg",
+      image2: "imageElse/7-2.jpg",
+      image3: "imageElse/7-3.jpg",
+    },
+    {
+      id: 8,
+      name: "Ribbon Tops",
+      price: 18.59,
+      image: "image/HOMEPAGE8.jpg",
+      image1: "imageElse/8-1.jpg",
+      image2: "imageElse/8-2.jpg",
+      image3: "imageElse/8-3.jpg",
+    },
+    {
+      id: 9,
+      name: "Regular Hoodie Jacket",
+      price: 36.95,
+      image: "image/HOMEPAGE9.jpg",
+      image1: "imageElse/9-1.jpg",
+      image2: "imageElse/9-2.jpg",
+      image3: "imageElse/9-3.jpg",
+    },
+    {
+      id: 10,
+      name: "Relaxed Fit Zip-Polo Shirt",
+      price: 6.95,
+      image: "image/HOMEPAGE10.jpg",
+      image1: "imageElse/10-1.jpg",
+      image2: "imageElse/10-2.jpg",
+      image3: "imageElse/10-3.jpg",
+    },
+    {
+      id: 11,
+      name: "Relaxed Fit Shirts",
+      price: 6.95,
+      image: "image/HOMEPAGE11.jpg",
+      image1: "imageElse/11-1.jpg",
+      image2: "imageElse/11-2.jpg",
+      image3: "imageElse/11-3.jpg",
+    },
+    {
+      id: 12,
+      name: "Regular Printed T-Shirts",
+      price: 6.95,
+      image: "image/HOMEPAGE12.jpg",
+      image1: "imageElse/12-1.jpg",
+      image2: "imageElse/12-2.jpg",
+      image3: "imageElse/12-3.jpg",
+    },
+    {
+      id: 13,
+      name: "Regular Fit Jacket",
+      price: 25.59,
+      image: "image/HOMEPAGE13.jpg",
+      image1: "imageElse/14-1.jpg",
+      image2: "imageElse/14-2.jpg",
+      image3: "imageElse/14-3.jpg",
+    },
+    {
+      id: 14,
+      name: "Loose Fit T-Shirts",
+      price: 13.95,
+      image: "image/HOMEPAGE14.jpg",
+      image1: "imageElse/15-1.jpg",
+      image2: "imageElse/15-2.jpg",
+      image3: "imageElse/15-3.jpg",
+    },
+    {
+      id: 15,
+      name: "Regular Denim Shorts",
+      price: 18.59,
+      image: "image/HOMEPAGE15.jpg",
+      image1: "imageElse/16-1.jpg",
+      image2: "imageElse/16-2.jpg",
+      image3: "imageElse/16-3.jpg",
+    },
+    {
+      id: 16,
+      name: "Regular Shirt With Printed",
+      price: 16.95,
+      image: "image/HOMEPAGE16.jpg",
+      image1: "imageElse/17-1.jpg",
+      image2: "imageElse/17-2.jpg",
+      image3: "imageElse/17-3.jpg",
+    },
+    {
+      id: 17,
+      name: "Loose Fit Shirts With Printed",
+      price: 16.95,
+      image: "image/Loose Fit Shirts With Printed 17.jpg",
+      image1: "imageElse/18-1.jpg",
+      image2: "imageElse/18-2.jpg",
+      image3: "imageElse/18-3.jpg",
+    },
+    {
+      id: 18,
+      name: "Relaxed T-Shirt With Printed",
+      price: 14.95,
+      image: "image/HOMEPAGE18.jpg",
+      image1: "imageElse/19-1.jpg",
+      image2: "imageElse/19-2.jpg",
+      image3: "imageElse/19-3.jpg",
+    },
+    {
+      id: 19,
+      name: "Regular T-Shirt With Printed",
+      price: 13.59,
+      image: "image/HOMEPAGE19.jpg",
+      image1: "imageElse/13-1.jpg",
+      image2: "image/HOMEPAGE19.jpg",
+      image3: "imageElse/13-1.jpg",
+    },
+    {
+      id: 20,
+      name: "Regular Stripe Sweatshirt",
+      price: 18.59,
+      image: "image/HOMEPAGE20.jpg",
+      image1: "imageElse/20-1.jpg",
+      image2: "imageElse/20-2.jpg",
+      image3: "imageElse/20-3.jpg",
+    },
+  ];
 
-      // Load product details on viewitem.html
-      if (window.location.pathname.includes("viewitem.html")) {
-        loadProductDetails();
-      }
+  // Render products on homepage
+  if (listProductHTML) {
+    addDataToHtml();
+  }
 
-      // Render cart
-      addCartToHTML();
-    })
-    .catch((error) => {
-      console.error("Error fetching products:", error);
-      // Fallback: Display an error message
-      if (listProductHTML) {
-        listProductHTML.innerHTML =
-          "<p>Failed to load products. Please try again later.</p>";
-      }
-    });
+  // Load product details on viewitem.html
+  if (window.location.pathname.includes("viewitem.html")) {
+    loadProductDetails();
+  }
+
+  // Render cart
+  addCartToHTML();
 };
 
 // Start the app
