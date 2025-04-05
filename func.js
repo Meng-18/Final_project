@@ -1,3 +1,4 @@
+
 // Slider
 const swiper = new Swiper(".slider-container", {
   effect: "slide",
@@ -7,32 +8,32 @@ const swiper = new Swiper(".slider-container", {
 
 // Change items (for viewitem.html)
 function show0() {
-  let img = document.getElementById("img-site2");
-  let thumbnail = document.getElementById("img0");
-  if (img && thumbnail) {
-    img.src = thumbnail.src;
-  }
+    let img = document.getElementById('img-site2');
+    let thumbnail = document.getElementById('img0');
+    if (img && thumbnail) {
+        img.src = thumbnail.src;
+    }
 }
 function show1() {
-  let img = document.getElementById("img-site2");
-  let thumbnail = document.getElementById("img1");
-  if (img && thumbnail) {
-    img.src = thumbnail.src;
-  }
+    let img = document.getElementById('img-site2');
+    let thumbnail = document.getElementById('img1');
+    if (img && thumbnail) {
+        img.src = thumbnail.src;
+    }
 }
 function show2() {
-  let img = document.getElementById("img-site2");
-  let thumbnail = document.getElementById("img2");
-  if (img && thumbnail) {
-    img.src = thumbnail.src;
-  }
+    let img = document.getElementById('img-site2');
+    let thumbnail = document.getElementById('img2');
+    if (img && thumbnail) {
+        img.src = thumbnail.src;
+    }
 }
 function show3() {
-  let img = document.getElementById("img-site2");
-  let thumbnail = document.getElementById("img3");
-  if (img && thumbnail) {
-    img.src = thumbnail.src;
-  }
+    let img = document.getElementById('img-site2');
+    let thumbnail = document.getElementById('img3');
+    if (img && thumbnail) {
+        img.src = thumbnail.src;
+    }
 }
 
 // Quantity ViewItems
