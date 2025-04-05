@@ -1,46 +1,47 @@
-// Slider
+// Slider (unchanged)
 const swiper = new Swiper(".slider-container", {
   effect: "slide",
   speed: 1000,
   autoplay: { delay: 2000 },
 });
 
-// Change items (for viewitem.html)
+// Change items (for viewitem.html) - unchanged
 function show0() {
-    let img = document.getElementById('img-site2');
-    let thumbnail = document.getElementById('img0');
-    if (img && thumbnail) {
-        img.src = thumbnail.src;
-    }
+  let img = document.getElementById("img-site2");
+  let thumbnail = document.getElementById("img0");
+  if (img && thumbnail) {
+    img.src = thumbnail.src;
+  }
 }
 function show1() {
-    let img = document.getElementById('img-site2');
-    let thumbnail = document.getElementById('img1');
-    if (img && thumbnail) {
-        img.src = thumbnail.src;
-    }
+  let img = document.getElementById("img-site2");
+  let thumbnail = document.getElementById("img1");
+  if (img && thumbnail) {
+    img.src = thumbnail.src;
+  }
 }
 function show2() {
-    let img = document.getElementById('img-site2');
-    let thumbnail = document.getElementById('img2');
-    if (img && thumbnail) {
-        img.src = thumbnail.src;
-    }
+  let img = document.getElementById("img-site2");
+  let thumbnail = document.getElementById("img2");
+  if (img && thumbnail) {
+    img.src = thumbnail.src;
+  }
 }
 function show3() {
-    let img = document.getElementById('img-site2');
-    let thumbnail = document.getElementById('img3');
-    if (img && thumbnail) {
-        img.src = thumbnail.src;
-    }
+  let img = document.getElementById("img-site2");
+  let thumbnail = document.getElementById("img3");
+  if (img && thumbnail) {
+    img.src = thumbnail.src;
+  }
 }
 
-// Quantity ViewItems
+// Quantity ViewItems (unchanged)
 let qty = document.querySelector(".qtyview");
 
 function increaseQty() {
   qty.value = parseInt(qty.value) + 1;
 }
+
 function decreaseQty() {
   if (parseInt(qty.value) > 0) {
     qty.value = parseInt(qty.value) - 1;
@@ -58,17 +59,19 @@ let ironCartSpan = document.querySelector("span");
 let listProducts = [];
 let carts = [];
 
+// Toggle cart visibility
 if (iconbag) {
-  iconbag.addEventListener("click", function () {
+  iconbag.addEventListener("click", () => {
     body.classList.toggle("showcard");
   });
 }
 if (closecard) {
-  closecard.addEventListener("click", function () {
+  closecard.addEventListener("click", () => {
     body.classList.toggle("showcard");
   });
 }
 
+// Render products on the homepage
 const addDataToHtml = () => {
   if (!listProductHTML) return;
   listProductHTML.innerHTML = "";
@@ -78,27 +81,31 @@ const addDataToHtml = () => {
       newProduct.classList.add("itemContent");
       newProduct.dataset.id = product.id;
       newProduct.innerHTML = `
-                <a href="viewitem.html?productId=${product.id}"><img src="${product.image}" alt="Product Image" class="img-item"></a>
-                <div class="item-info">
-                    <div class="price-content">
-                        <span class="item-price">$ ${product.price}</span>
-                        <i class="favorite-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill"
-                                viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
-                            </svg>
-                        </i>    
-                    </div>
-                    <div class="product-name">
-                        <span class="item-name">${product.name}</span>
-                        <button class="buttonviewmore">Add To Cart</button>
-                    </div>
-                </div>`;
+        <a href="viewitem.html?productId=${product.id}">
+          <img src="${product.image}" alt="Product Image" class="img-item">
+        </a>
+        <div class="item-info">
+          <div class="price-content">
+            <span class="item-price">$ ${product.price}</span>
+            <i class="favorite-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+              </svg>
+            </i>    
+          </div>
+          <div class="product-name">
+            <span class="item-name">${product.name}</span>
+            <button class="buttonviewmore">Add To Cart</button>
+          </div>
+        </div>`;
       listProductHTML.appendChild(newProduct);
     });
+  } else {
+    listProductHTML.innerHTML = "<p>No products available.</p>";
   }
 };
 
+// Add to cart from homepage
 if (listProductHTML) {
   listProductHTML.addEventListener("click", (event) => {
     let positionClick = event.target;
@@ -110,6 +117,7 @@ if (listProductHTML) {
   });
 }
 
+// Add product to cart
 const addToCart = (product_id, quantity, size) => {
   let positionThisProductInCart = carts.findIndex(
     (value) => value.product_id == product_id && value.size == size
@@ -127,10 +135,12 @@ const addToCart = (product_id, quantity, size) => {
   addCardToMemory();
 };
 
+// Save cart to localStorage
 const addCardToMemory = () => {
   localStorage.setItem("cart", JSON.stringify(carts));
 };
 
+// Render cart items
 const addCartToHTML = () => {
   if (!listCartHTML || !ironCartSpan) return;
   listCartHTML.innerHTML = "";
@@ -146,24 +156,25 @@ const addCartToHTML = () => {
       );
       let info = listProducts[positionProduct];
       newCart.innerHTML = `
-                <div class="image-tap">
-                    <img src="${info.image}" alt="">
-                </div>
-                <div class="name">${info.name}${
+        <div class="image-tap">
+          <img src="${info.image}" alt="">
+        </div>
+        <div class="name">${info.name}${
         cart.size ? " (" + cart.size + ")" : ""
       }</div>
-                <div class="quantity">
-                    <span class="minus"> < </span>
-                    <span> ${cart.quantity} </span>
-                    <span class="plus"> > </span>
-                </div>
-                <div class="price">$${info.price * cart.quantity}</div>`;
+        <div class="quantity">
+          <span class="minus"> < </span>
+          <span> ${cart.quantity} </span>
+          <span class="plus"> > </span>
+        </div>
+        <div class="price">$${info.price * cart.quantity}</div>`;
       listCartHTML.appendChild(newCart);
     });
   }
   ironCartSpan.innerText = totalQuantity;
 };
 
+// Update cart icon
 const updateCartIcon = () => {
   if (!ironCartSpan) return;
   let totalQuantity = 0;
@@ -173,6 +184,7 @@ const updateCartIcon = () => {
   ironCartSpan.innerText = totalQuantity;
 };
 
+// Handle cart quantity changes
 if (listCartHTML) {
   listCartHTML.addEventListener("click", (event) => {
     let positionClick = event.target;
@@ -194,8 +206,7 @@ const changeQuantity = (product_id, type) => {
   if (positionItemInCart >= 0) {
     switch (type) {
       case "plus":
-        carts[positionItemInCart].quantity =
-          carts[positionItemInCart].quantity + 1;
+        carts[positionItemInCart].quantity += 1;
         break;
       default:
         let valueChange = carts[positionItemInCart].quantity - 1;
@@ -246,6 +257,7 @@ const loadProductDetails = () => {
   }
 };
 
+// Initialize the app
 const initApp = () => {
   // Load cart from localStorage
   if (localStorage.getItem("cart")) {
@@ -255,10 +267,18 @@ const initApp = () => {
   // Update cart icon on page load
   updateCartIcon();
 
-  // Fetch product data
-  fetch("product.json")
-    .then((response) => response.json())
+  // Fetch product data with absolute path
+  console.log("Attempting to fetch product.json");
+  fetch("/product.json") // Use absolute path
+    .then((response) => {
+      console.log("Fetch response:", response);
+      if (!response.ok) {
+        throw new Error("Network response was not ok: " + response.statusText);
+      }
+      return response.json();
+    })
     .then((data) => {
+      console.log("Fetched data:", data);
       listProducts = data;
 
       // Render products on homepage
@@ -274,7 +294,15 @@ const initApp = () => {
       // Render cart
       addCartToHTML();
     })
-    .catch((error) => console.error("Error fetching products:", error));
+    .catch((error) => {
+      console.error("Error fetching products:", error);
+      // Fallback: Display an error message
+      if (listProductHTML) {
+        listProductHTML.innerHTML =
+          "<p>Failed to load products. Please try again later.</p>";
+      }
+    });
 };
 
+// Start the app
 initApp();
