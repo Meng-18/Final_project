@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.contentTap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.imageMain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+    border-radius: 10px;
+}
+.imageMain img{
+    width: 400px;
+    /* border: 1px solid; */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2)
+}
+.proInfo{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    margin: 20px;
+    width: 700px;
+    height: 575px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+.imageElse{
+    margin: 10px 0px;
+}
+.imageElse .imgSmall{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    margin: 10px 0 10px 10px;
+    gap: 20px;
+}
+.imageElse .imgSmall img{
+    cursor: pointer;
+    width: 130px;
+    height: 170px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.imagePrice p{
+    margin-left: 10px;
+    font-size: 16px;
+}
+  /* Size  */
+.size {
+    font-family: Arial, sans-serif; /* Adjust font as needed */
+}
+.sizeDe {
+    display: flex; /* Display size options in a row */
+    gap: 10px; /* Space between buttons */
+    margin: 10px;
+}
+
+.sizeDe input[type="radio"] {
+    cursor: pointer;
+    width: 50px;
+    padding-left: 50px;
+     /* display: none; */
+}
+
+.sizeDe label {
+    margin-right: 40px;
+    font-size: 14px; /* Adjust font size */
+    text-align: center; /* Center the text */
+    min-width: 40px; /* Ensure buttons are wide enough */
+}
+
+
+.proQty .btnqty{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 5px;
+}
+.proQty .btnqty input {
+    text-align: center;
+    width: 50px;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.proQty .btnqty .qtyBtn{
+    flex-direction: row;
+    background-color: transparent;
+    color: black;
+    font-size: 20px;
+    border: 1px solid;
+    cursor: pointer;
+    margin: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+}
+.addToBagBtn{
+    margin: 20px 70px;
+}
+.addToBagBtn .addToBag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+.addToBagBtn .addToBag:hover{
+    background-color: #252525;
+    color: white;
+    border: none;
+}
+
+.changeimage{
+    border: none;
+}
+.changeimage {
+            border: 2px solid transparent; /* Default border */
+            background: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+.changeimage img {
+            width: 50px; /* Adjust thumbnail size */
+            height: auto;
+        }
+
+.changeimage.active {
+            border: 2px solid #000; /* Highlight the selected thumbnail */
+        }
